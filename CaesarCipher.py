@@ -14,15 +14,16 @@ class CaesarCipher:
             return chr((ord(char) - base + shift) % 26 + base)
         return char  # Non-alphabet characters remain unchanged
 
-# Example Usage
 if __name__ == "__main__":
-    shift_value = 3  # Shift of 3 (Classic Caesar Cipher)
+    shift_value = int(input("Enter shift value: "))  # User input for shift value
     cipher = CaesarCipher(shift_value)
     
-    plaintext = "Safi Ullah"
-    encrypted_text = cipher.encrypt(plaintext)
-    decrypted_text = cipher.decrypt(encrypted_text)
+    choice = input("Do you want to (E)ncrypt or (D)ecrypt? ").strip().lower()
+    text = input("Enter the text: ")
     
-    print(f"Plaintext: {plaintext}")
-    print(f"Encrypted: {encrypted_text}")
-    print(f"Decrypted: {decrypted_text}")
+    if choice == 'e':
+        print(f"Encrypted Text: {cipher.encrypt(text)}")
+    elif choice == 'd':
+        print(f"Decrypted Text: {cipher.decrypt(text)}")
+    else:
+        print("Invalid choice. Please enter 'E' for encryption or 'D' for decryption.")
