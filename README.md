@@ -1,7 +1,3 @@
-Here’s a **README file** for your project without revealing how the algorithm works:  
-
----
-
 # **Advanced Caesar Cipher with DES-like Rounds**  
 
 ## **Introduction**  
@@ -41,6 +37,3 @@ python decrypt.py
 ## **License**  
 This project is open-source and available under the MIT License.  
 
----
-
-Let me know if you need any modifications! 🚀
