@@ -15,5 +15,5 @@ class CaesarCipher:
 if __name__ == "__main__":
     shift_value = int(input("Enter shift value: "))
     cipher = CaesarCipher(shift_value)
-    text = input("Enter the text to encrypt: ")
+    text = input("Enter the text to encrypt" + "(Do not use spaces): ")
     print(f"Encrypted Text: {cipher.encrypt(text)}")
