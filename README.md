@@ -1,5 +1,5 @@
 # **Advanced Caesar Cipher with DES-like Rounds**  
-
+---
 ## **Introduction**  
 This project implements an advanced version of the **Caesar Cipher** combined with **modern cryptographic techniques**. Unlike the traditional Caesar Cipher, which uses a fixed shift value, this encryption system introduces **16 rounds** of transformation, enhancing security while maintaining simplicity.  
 
@@ -35,8 +35,6 @@ python decrypt.py
 - **Decryption**: The program takes the ciphertext and key to reconstruct the original message.  
 
 ## **License**  
-This project is open-source and available under the MIT License.  
+This project is open-source and available under the (GNU) GENERAL PUBLIC LICENSE.  
 
 ---
-
-Let me know if you need any modifications! 🚀
