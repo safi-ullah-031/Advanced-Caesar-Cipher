@@ -35,5 +35,5 @@ python decrypt.py
 - **Decryption**: The program takes the ciphertext and key to reconstruct the original message.  
 
 ## **License**  
-This project is open-source and available under the MIT License.  
+This project is open-source and available under the GNU License.  
 
