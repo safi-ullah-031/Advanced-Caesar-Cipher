@@ -1,12 +1,14 @@
-
 # caesar_des_decryption.py
 class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
         self.key = key[:8]  # Take only the first 8 characters
         self.shift = shift % 26
+        self.additional_shift = sum(ord(c) for c in self.key) % 26  # Second round shift
 
     def decrypt(self, ciphertext: str) -> str:
-        return self._apply_caesar_cipher(ciphertext, -self.shift)
+        first_round = self._apply_caesar_cipher(ciphertext, -self.additional_shift)
+        second_round = self._apply_caesar_cipher(first_round, -self.shift)
+        return second_round
 
     def _apply_caesar_cipher(self, text: str, shift: int) -> str:
         return ''.join(self._shift_character(char, shift) for char in text)
