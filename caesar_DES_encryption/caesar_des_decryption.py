@@ -1,14 +1,8 @@
-import random
-import string
-
-# caesar_des_encryption.py
+# caesar_des_decryption.py
 class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
-        self.key = key
+        self.key = key[:8].ljust(8, ' ')  # Ensure key is exactly 8 characters
         self.shift = shift % 26
-
-    def encrypt(self, plaintext: str) -> str:
-        return self._apply_caesar_cipher(plaintext, self.shift)
 
     def decrypt(self, ciphertext: str) -> str:
         return self._apply_caesar_cipher(ciphertext, -self.shift)
@@ -22,19 +16,11 @@ class CaesarDESCipher:
             return chr((ord(char) - base + shift) % 26 + base)
         return char
 
-    @staticmethod
-    def generate_key() -> str:
-        return ''.join(random.choices(string.ascii_letters + string.digits, k=8))
-
 if __name__ == "__main__":
+    key = input("Enter 8-character key: ")
     shift_value = int(input("Enter shift value: "))
-    key = CaesarDESCipher.generate_key()
     cipher = CaesarDESCipher(key, shift_value)
     
-    plaintext = input("Enter text to encrypt: ")
-    encrypted_text = cipher.encrypt(plaintext)
-    print(f"Encrypted Text: {encrypted_text}")
-    print(f"Generated Key: {key}")
-    
-    decrypted_text = cipher.decrypt(encrypted_text)
+    ciphertext = input("Enter text to decrypt: ")
+    decrypted_text = cipher.decrypt(ciphertext)
     print(f"Decrypted Text: {decrypted_text}")
