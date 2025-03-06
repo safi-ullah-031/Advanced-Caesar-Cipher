@@ -1,12 +1,11 @@
 # caesar_des_encryption.py
 class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
-        self.key = key[:8].ljust(8, ' ')  # Ensure key is exactly 8 characters
+        self.key = key[:8]  # Take only the first 8 characters
         self.shift = shift % 26
 
     def encrypt(self, plaintext: str) -> str:
-        shifted_text = self._apply_caesar_cipher(plaintext, self.shift)
-        return shifted_text
+        return self._apply_caesar_cipher(plaintext, self.shift)
 
     def _apply_caesar_cipher(self, text: str, shift: int) -> str:
         return ''.join(self._shift_character(char, shift) for char in text)
@@ -18,7 +17,7 @@ class CaesarDESCipher:
         return char
 
 if __name__ == "__main__":
-    key = input("Enter 8-character key: ")
+    key = input("Enter key (8 characters max): ")[:8]  # Ensure only first 8 characters are taken
     shift_value = int(input("Enter shift value: "))
     cipher = CaesarDESCipher(key, shift_value)
     
