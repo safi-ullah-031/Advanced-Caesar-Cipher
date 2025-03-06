@@ -1,7 +1,7 @@
 # caesar_des_encryption.py
 class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
-        self.key = key[:8]  # Use first 8 characters as the key
+        self.key = key[:8].ljust(8, ' ')  # Ensure key is exactly 8 characters
         self.shift = shift % 26
 
     def encrypt(self, plaintext: str) -> str:
