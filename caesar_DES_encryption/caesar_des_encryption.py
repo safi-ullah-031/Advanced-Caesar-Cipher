@@ -7,6 +7,7 @@ class CaesarDESCipher:
         self.third_shift = (self.shift + self.additional_shift) % 26  # Third round shift
         self.fourth_shift = (self.third_shift + self.additional_shift) % 26  # Fourth round shift
         self.fifth_shift = (self.fourth_shift + self.additional_shift) % 26  # Fifth round shift
+        self.sixth_shift = (self.fifth_shift + self.additional_shift) % 26  # Sixth round shift
 
     def encrypt(self, plaintext: str) -> str:
         first_round = self._apply_caesar_cipher(plaintext, self.shift)
@@ -14,7 +15,8 @@ class CaesarDESCipher:
         third_round = self._apply_caesar_cipher(second_round, self.third_shift)
         fourth_round = self._apply_caesar_cipher(third_round, self.fourth_shift)
         fifth_round = self._apply_caesar_cipher(fourth_round, self.fifth_shift)
-        return fifth_round
+        sixth_round = self._apply_caesar_cipher(fifth_round, self.sixth_shift)
+        return sixth_round
 
     def _apply_caesar_cipher(self, text: str, shift: int) -> str:
         return ''.join(self._shift_character(char, shift) for char in text)
