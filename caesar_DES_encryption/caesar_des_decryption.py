@@ -1,13 +1,15 @@
+
 # caesar_des_decryption.py
 
 class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
         self.key = key[:8].ljust(8, ' ')  # Ensure key is exactly 8 characters
         self.shift = shift % 26
+        self.rounds = 8  # Total rounds of decryption
 
     def decrypt(self, ciphertext: str) -> str:
         text = ciphertext
-        for _ in range(7):  # Apply 7 rounds of decryption
+        for _ in range(self.rounds):
             text = self._apply_caesar_cipher(text, -self.shift)
         return text
 
