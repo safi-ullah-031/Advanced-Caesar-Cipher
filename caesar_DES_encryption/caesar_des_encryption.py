@@ -4,7 +4,7 @@ class CaesarDESCipher:
     def __init__(self, key: str, shift: int):
         self.key = key[:8].ljust(8, ' ')  # Ensure key is exactly 8 characters
         self.shift = shift % 26
-        self.rounds = 13  # Total rounds of encryption
+        self.rounds = 14  # Total rounds of encryption
 
     def encrypt(self, plaintext: str) -> str:
         text = plaintext
