@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Caesar Cipher</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { margin: 10px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Caesar Cipher</h1>
+    <input type="text" id="text" placeholder="Enter text" size="40">
+    <input type="number" id="shift" placeholder="Shift" min="1" max="25">
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button>
+    <p><strong>Result:</strong> <span id="output"></span></p>
+
+    <script>
+        function caesarCipher(text, shift, encrypt = true) {
+            return text.split('').map(char => {
+                if (char.match(/[a-zA-Z]/)) {
+                    let base = char === char.toUpperCase() ? 65 : 97;
+                    let shiftAmount = encrypt ? shift : -shift;
+                    return String.fromCharCode(((char.charCodeAt(0) - base + shiftAmount + 26) % 26) + base);
+                }
+                return char;
+            }).join('');
+        }
+
+        function encrypt() {
+            let text = document.getElementById("text").value;
+            let shift = parseInt(document.getElementById("shift").value) || 0;
+            document.getElementById("output").innerText = caesarCipher(text, shift, true);
+        }
+
+        function decrypt() {
+            let text = document.getElementById("text").value;
+            let shift = parseInt(document.getElementById("shift").value) || 0;
+            document.getElementById("output").innerText = caesarCipher(text, shift, false);
+        }
+    </script>
+
+</body>
+</html>
